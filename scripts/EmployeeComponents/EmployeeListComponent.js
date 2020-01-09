@@ -11,7 +11,6 @@ export const EmployeeListComponent = () => {
   const computers = useComputers();
   const departments = useDepartments();
   const locations = useLocations();
-  console.log(locations);
 
   const renderData = () => {
     targetElement.innerHTML = `
