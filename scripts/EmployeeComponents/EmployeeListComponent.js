@@ -1,8 +1,10 @@
 import { useEmployees } from "./EmployeeDataProvider.js";
-import { useComputers } from "./ComputerDataProvider.js";
+import { useComputers } from "../ComputerComponents/ComputerDataProvider.js";
 import { EmployeeComponent } from "./EmployeeComponent.js";
-import { useDepartments } from "./DepartmentDataProvider.js";
-import { useLocations } from "./LocationsDataProvider.js";
+import { useDepartments } from "../DepartmentComponents/DepartmentDataProvider.js";
+import { useLocations } from "../LocationsComponents/LocationsDataProvider.js";
+import { UseCustomers } from "../LocationsComponents/CustomerDataProvider.js";
+import { UseEmployeeCustomers } from "../LocationsComponents/EmployeeCustomerDataProvider.js";
 
 export const EmployeeListComponent = () => {
   const targetElement = document.querySelector("#employees-products");
@@ -11,6 +13,8 @@ export const EmployeeListComponent = () => {
   const computers = useComputers();
   const departments = useDepartments();
   const locations = useLocations();
+  const customers = UseCustomers();
+  const employeeCustomers = UseEmployeeCustomers();
 
   const renderData = () => {
     targetElement.innerHTML = `
@@ -28,11 +32,26 @@ export const EmployeeListComponent = () => {
         const location = locations.find(
           locationId => locationId.id === employee.locationId
         );
+
+        const employeeCustomerRelationships = employeeCustomers.filter(
+          employeeCustomer => employeeCustomer.employeeId === employee.id
+        );
+
+        const foundCustomers = employeeCustomerRelationships.map(
+          employeeCustomerRelatonship => {
+            const foundCustomer = customers.find(
+              customer => customer.id === employeeCustomerRelatonship.customerId
+            );
+            return foundCustomer;
+          }
+        );
+
         const htmlRepresentation = EmployeeComponent(
           employee,
           product,
           department,
-          location
+          location,
+          foundCustomers
         );
         return htmlRepresentation;
       })

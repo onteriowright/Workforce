@@ -2,7 +2,8 @@ export const EmployeeComponent = (
   employee,
   product,
   departments,
-  locations
+  locations,
+  customers
 ) => {
   return `
     <div><h3>${employee.firstName} ${employee.lastName}</h3></div>
@@ -10,5 +11,8 @@ export const EmployeeComponent = (
     <div>Currenting using a : ${product.model}</div>
     <div>Works in the ${departments.department} department</div>
     <div>Works at the ${locations.location} Office</div>
+    <ol>
+      ${customers.map(customer => `<li>${customer.businessName}</li>`).join("")}
+    </ol>
     `;
 };
