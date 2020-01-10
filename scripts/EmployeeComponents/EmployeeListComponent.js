@@ -18,7 +18,7 @@ export const EmployeeListComponent = () => {
 
   const renderData = () => {
     targetElement.innerHTML = `
-    <div><h2>Workforce Employees</h2></div>
+    <h1 class="heading">Workforce Employees</h1>
     <section class="display">
       ${employees
         .map(employee => {

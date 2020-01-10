@@ -1,10 +1,23 @@
+@import "./fonts.css";
+
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  background-image: url("../assets/1691682.jpg");
+  background-repeat: none;
+  background-size: cover;
+}
+.body {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .display {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .display-template {
+  background-color: rgb(10, 10, 10, 0.7);
   flex-basis: 22%;
   border: 1px dotted;
   padding: 8px;
@@ -12,4 +25,9 @@
 }
 .display-info {
   margin: 15px;
+}
+.heading {
+  text-align: center;
+  font-size: 45px;
+  font-family: "Public Sans", sans-serif;
 }
