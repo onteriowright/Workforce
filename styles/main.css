@@ -17,7 +17,7 @@ body {
 }
 
 .display-template {
-  background-color: rgb(10, 10, 10, 0.7);
+  background-color: rgb(10, 10, 10, 0.6);
   flex-basis: 22%;
   border: 1px dotted;
   padding: 8px;
@@ -28,6 +28,5 @@ body {
 }
 .heading {
   text-align: center;
-  font-size: 45px;
-  font-family: "Public Sans", sans-serif;
+  font-size: 75px;
 }

@@ -53,7 +53,8 @@ export const EmployeeListComponent = () => {
             product,
             department,
             location,
-            foundCustomers
+            foundCustomers,
+            employeeCustomers
           );
           return htmlRepresentation;
         })
